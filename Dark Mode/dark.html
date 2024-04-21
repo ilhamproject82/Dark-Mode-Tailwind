@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Menggunakan Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                }
+            }
+        }
+    </script>
+</head>
+<style type="text/tailwindcss">
+    #toggle:checked~label div.switch{
+        @apply translate-x-3
+    }
+
+</style>
+
+<body class="dark:bg-gray-900 dark:text-slate-200">
+
+    <div class="flex justify-center mt-14">
+        <span class="text-sm text-slate-500 mr-2">Light</span>
+        <input type="checkbox" id="toggle" class="hidden">
+        <label for="toggle">
+            <div class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer">
+                <div class="w-4 h-4 bg-white rounded-full switch"></div>
+            </div>
+        </label>
+        <span class="text-sm text-slate-500 ml-2">Dark</span>
+    </div>
+
+    <h1 class="text-center mt-10 text-black dark:text-white">Hello World</h1>
+
+    <p class="w-96 text-center mx-auto mt-9 dark:text-white">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate nostrum inventore dignissimos illum, atque
+        ex laborum ullam aliquid consequatur velit tenetur fuga deleniti! Exercitationem animi tempore reiciendis
+        perspiciatis aperiam autem omnis velit dolor eos consequuntur, debitis minus commodi deserunt quasi ad inventore
+        cupiditate ducimus earum, eius neque assumenda fugit sunt!
+    </p>
+
+
+    <script>
+        const checkbox = document.querySelector('#toggle');
+        const html = document.querySelector('html');
+
+        checkbox.addEventListener('click', function () {
+            if (checkbox.checked) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
